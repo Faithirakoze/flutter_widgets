@@ -232,4 +232,45 @@ class CartScreen extends StatelessWidget {
                 ),
               ),
               // Bottom bar
-      
+              Container(
+                padding: const EdgeInsets.fromLTRB(20, 14, 20, 32),
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  border:
+                      Border(top: BorderSide(color: Color(0xFFEEEEEE))),
+                ),
+                child: Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Text('Items',
+                            style: TextStyle(
+                                fontSize: 12, color: Colors.black45)),
+                        Text('$count',
+                            style: const TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.indigo)),
+                      ],
+                    ),
+                    const Spacer(),
+                    FilledButton.icon(
+                      onPressed: () {
+                        CartService.instance.clear();
+                        Navigator.pop(context);
+                      },
+                      icon: const Icon(Icons.check_rounded, size: 18),
+                      label: const Text('Checkout'),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          );
+        },
+      ),
+    );
+  }
+}
