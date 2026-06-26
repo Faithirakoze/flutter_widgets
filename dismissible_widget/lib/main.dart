@@ -123,3 +123,36 @@ class ShopScreen extends StatelessWidget {
     );
   }
 }
+
+class CartScreen extends StatelessWidget {
+  const CartScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Cart', style: TextStyle(fontWeight: FontWeight.w700)),
+        bottom: const PreferredSize(
+          preferredSize: Size.fromHeight(1),
+          child: Divider(height: 1),
+        ),
+      ),
+      body: ValueListenableBuilder<int>(
+        valueListenable: CartService.itemCount,
+        builder: (context, count, _) {
+          final items = CartService.instance.items;
+
+          if (items.isEmpty) {
+            return const Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(Icons.shopping_cart_outlined,
+                      size: 48, color: Colors.black26),
+                  SizedBox(height: 12),
+                  Text('Your cart is empty',
+                      style: TextStyle(color: Colors.black45)),
+                ],
+              ),
+            );
+          }
