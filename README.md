@@ -54,9 +54,9 @@ Dismissible(
 )
 ```
 
-Every `Dismissible` must have a unique `key`. Flutter uses it to track which physical widget corresponds to which item in the list as the list mutates. Using only the product name (`Key(name)`) would break if the same product appeared twice in the cart — both rows would share a key and Flutter would throw an error or remove the wrong one. Combining name and index (`'$name-$i'`) guarantees each row has a distinct identity regardless of duplicates.
+Every `Dismissible` must have a unique `key`. Flutter uses it to track which physical widget corresponds to which item in the list as the list mutates. Using only the product name (`Key(name)`) would break if the same product appeared twice in the cart, both rows would share a key and Flutter would throw an error or remove the wrong one. Combining name and index (`'$name-$i'`) guarantees each row has a distinct identity regardless of duplicates.
 
-### 2. The `direction` and `onDismissed` attributes — controlling the gesture and the side-effect
+### 2. The `direction` and `onDismissed` attributes
 
 ```dart
 Dismissible(
