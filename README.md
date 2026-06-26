@@ -4,6 +4,19 @@ A single-file Flutter app that lets you browse a small product catalogue, add it
 
 ---
 
+## Project structure
+
+```
+lib/
+└── main.dart          
+test/
+└── widget_test.dart  
+pubspec.yaml
+README.md
+```
+
+---
+
 ## Prerequisites
 
 | Tool | Minimum version |
@@ -19,12 +32,11 @@ Install Flutter by following the [official guide](https://docs.flutter.dev/get-s
 ## Running the app
 
 ```bash
-# 1. Clone or copy the project
+# 1. Clone the project
 git clone https://github.com/Faithirakoze/flutter_widgets.git
 cd dismissible_widget
 
-# 2. Grab dependencies (there are none beyond the Flutter SDK itself,
-#    but this command also generates platform folders if they are missing)
+# 2. Add dependencies
 flutter pub get
 
 # 3. Launch app
@@ -88,22 +100,7 @@ Dismissible(
 )
 ```
 
-`background` is the widget that sits *behind* the foreground child and is revealed as the user drags. Because `direction` is end-to-start, only one background slot is needed (if both directions were enabled, a `secondaryBackground` would cover the right-to-left swipe). The content — a red `Container` with a trash icon and a "Remove" label — is aligned to the right edge so it appears exactly where the user's finger is pulling toward. This is pure layout; no animation code is written manually because `Dismissible` handles the slide and fade internally.
-
----
-
----
-
-## Project structure
-
-```
-lib/
-└── main.dart          
-test/
-└── widget_test.dart  
-pubspec.yaml
-README.md
-```
+`background` is the widget that sits *behind* the foreground child and is revealed as the user drags. Because `direction` is end-to-start, only one background slot is needed (if both directions were enabled, a `secondaryBackground` would cover the right-to-left swipe). The content of a red `Container` with a trash icon and a "Remove" label is aligned to the right edge so it appears exactly where the user's finger is pulling toward. This is pure layout; no animation code is written manually because `Dismissible` handles the slide and fade internally.
 
 ---
 
