@@ -1,6 +1,6 @@
 # Flutter Shopping Cart
 
-A single-file Flutter app that lets you browse a small product catalogue, add items to a cart, and check out — all without any external packages or state-management libraries.
+A single-file Flutter app that lets you browse a small product catalogue, add items to a cart, and check out using a Dismissible widget.
 
 ---
 
