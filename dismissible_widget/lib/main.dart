@@ -43,6 +43,7 @@ void main() => runApp(MaterialApp(
       home: const ShopScreen(),
     ));
 
+
 class ShopScreen extends StatelessWidget {
   const ShopScreen({super.key});
 
@@ -124,6 +125,7 @@ class ShopScreen extends StatelessWidget {
   }
 }
 
+
 class CartScreen extends StatelessWidget {
   const CartScreen({super.key});
 
@@ -156,3 +158,78 @@ class CartScreen extends StatelessWidget {
               ),
             );
           }
+
+          return Column(
+            children: [
+              Container(
+                width: double.infinity,
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                color: Colors.indigo.withValues(alpha: .05),
+                child: const Row(
+                  children: [
+                    Icon(Icons.swipe_left_outlined,
+                        size: 16, color: Colors.indigo),
+                    SizedBox(width: 6),
+                    Text('Swipe left to remove',
+                        style:
+                            TextStyle(fontSize: 12, color: Colors.indigo)),
+                  ],
+                ),
+              ),
+              Expanded(
+                child: ListView.separated(
+                  padding: const EdgeInsets.all(16),
+                  itemCount: items.length,
+                  separatorBuilder: (_, __) => const SizedBox(height: 8),
+                  itemBuilder: (context, i) {
+                    final name = items[i];
+                    return Dismissible(
+                      key: Key('$name-$i'),
+                      direction: DismissDirection.endToStart,
+                      onDismissed: (_) => CartService.instance.remove(i),
+                      background: Container(
+                        alignment: Alignment.centerRight,
+                        padding: const EdgeInsets.only(right: 20),
+                        decoration: BoxDecoration(
+                          color: Colors.redAccent,
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: const Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Icon(Icons.delete_outline,
+                                color: Colors.white, size: 22),
+                            SizedBox(height: 4),
+                            Text('Remove',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 11)),
+                          ],
+                        ),
+                      ),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.indigo.withValues(alpha: .04),
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                              color: Colors.indigo.withValues(alpha: .15)),
+                        ),
+                        child: ListTile(
+                          leading: const CircleAvatar(
+                            backgroundColor: Color(0xFFE8EAF6),
+                            child: Icon(Icons.shopping_bag_outlined,
+                                color: Colors.indigo, size: 18),
+                          ),
+                          title: Text(name,
+                              style: const TextStyle(
+                                  fontWeight: FontWeight.w500)),
+                          trailing: const Icon(Icons.chevron_left,
+                              color: Colors.black26, size: 18),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+              // Bottom bar
+      
