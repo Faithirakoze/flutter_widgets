@@ -19,13 +19,9 @@ README.md
 
 ## Prerequisites
 
-| Tool | Minimum version |
-|------|----------------|
-| Flutter SDK | 3.19 |
-| Dart | 3.3 |
-| Android Studio
-
-Install Flutter by following the [official guide](https://docs.flutter.dev/get-started/install). Run `flutter doctor` afterwards and resolve any issues it flags before continuing.
+1. Flutter
+2. Dart
+3. Android Studio
 
 ---
 
